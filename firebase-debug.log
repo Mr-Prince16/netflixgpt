@@ -1,0 +1,54 @@
+[debug] [2023-09-14T17:01:39.816Z] ----------------------------------------------------------------------
+[debug] [2023-09-14T17:01:39.818Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\srinjoy_bhattacharya\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init --debug
+[debug] [2023-09-14T17:01:39.819Z] CLI Version:   12.5.4
+[debug] [2023-09-14T17:01:39.819Z] Platform:      win32
+[debug] [2023-09-14T17:01:39.819Z] Node Version:  v18.13.0
+[debug] [2023-09-14T17:01:39.821Z] Time:          Thu Sep 14 2023 22:31:39 GMT+0530 (India Standard Time)
+[debug] [2023-09-14T17:01:39.821Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-09-14T17:01:39.828Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-09-14T17:01:39.831Z] > authorizing via signed-in user (srinjoybhattacharya9@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\netflixgpt
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-09-14T17:01:51.270Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2023-09-14T17:01:52.211Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2023-09-14T17:01:52.212Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project netflix-gpt-d6ec4 (Netflix-GPT) 
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[info] +  Wrote build/404.html 
+[debug] [2023-09-14T17:02:10.610Z] >>> [apiv2][query] GET https://www.gstatic.com/firebasejs/releases.json [none]
+[debug] [2023-09-14T17:02:11.015Z] *** [apiv2] error from fetch(https://www.gstatic.com/firebasejs/releases.json, {"headers":{},"method":"GET"}): FetchError: request to https://www.gstatic.com/firebasejs/releases.json failed, reason: unable to get local issuer certificate
+[debug] [2023-09-14T17:02:11.387Z] FetchError: request to https://www.gstatic.com/firebasejs/releases.json failed, reason: unable to get local issuer certificate
+    at ClientRequest.<anonymous> (C:\Users\srinjoy_bhattacharya\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\node-fetch\lib\index.js:1501:11)
+    at ClientRequest.emit (node:events:513:28)
+    at ClientRequest.emit (node:domain:489:12)
+    at TLSSocket.socketErrorListener (node:_http_client:496:9)
+    at TLSSocket.emit (node:events:513:28)
+    at TLSSocket.emit (node:domain:489:12)
+    at emitErrorNT (node:internal/streams/destroy:151:8)
+    at emitErrorCloseNT (node:internal/streams/destroy:116:3)
+    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+[error] 
+[error] Error: Failed to make request to https://www.gstatic.com/firebasejs/releases.json
