@@ -3,17 +3,16 @@ import Header from "./Header";
 import {checkValidateData} from "../utils/validate";
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from '../utils/firebase';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { addUser } from '../utils/userSlice';
+import { USER_AVATAR } from '../utils/constants';
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage,setErrorMessage]= useState(null);
-  const navigate = useNavigate();
-   const dispatch = useDispatch();
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
+  const dispatch=useDispatch();
 
   const handleButtonClick = () =>{
     // Validate the form data
@@ -34,7 +33,7 @@ const Login = () => {
         // Update Profile
 
 updateProfile(auth.currentUser, {
-  displayName: name.current.value, photoURL:"https://scontent.fccu10-1.fna.fbcdn.net/v/t39.30808-6/375868358_1005885164064360_1838052822481962915_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a2f6c7&_nc_ohc=URYLY0UyDIwAX_5BqOx&_nc_ht=scontent.fccu10-1.fna&oh=00_AfB2-m2bw4Du0vsC-UPQJIp9Xr7PCAuAJdibARguzKTSTQ&oe=650BF495"
+  displayName: name.current.value, photoURL:USER_AVATAR
 }).then(() => {
   // Profile updated!
   // ...
@@ -47,7 +46,6 @@ updateProfile(auth.currentUser, {
     photoURL:photoURL,
   })
   );
-  navigate("/browse");
 })
 .catch((error) => {
   // An error occurred
@@ -73,21 +71,17 @@ updateProfile(auth.currentUser, {
     // Signed in 
     const user = userCredential.user;
     console.log(user);
-    navigate("/browse");
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     setErrorMessage(errorMessage+ "-" +errorCode);
   });
-
     }
   }
-
   const toggleSignInForm = ()=>{
     setIsSignInForm(!isSignInForm);
   }
-
   return (
    <div>
     <Header/>
