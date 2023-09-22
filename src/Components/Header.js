@@ -47,9 +47,9 @@ signOut(auth).then(() => {
   }
 
   return (
-    <div className=" absolute px-8 w-screen py-2 bg-gradient-to-b from-black z-10 flex justify-between">
+    <div className=" absolute px-8 w-screen py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
       <img
-      className="w-44"
+      className="w-44 mx-auto md:mx-0"
       src={LOGO}
       alt="logo"
       />
@@ -74,7 +74,7 @@ signOut(auth).then(() => {
           {showGptSearch ? "Homepage" : "GPT Search"}
         </button>
         <img
-        className='h-12 w-12'
+        className='hidden md:block h-12 w-12'
         alt='usericon'
         src={user.photoURL}
         />
