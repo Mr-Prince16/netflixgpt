@@ -4,10 +4,12 @@ import useMovieTrailer from '../Hooks/useMovieTrailer';
 
 const VideoBackground = ({movieId}) => {
     const trailerVideo = useSelector((store)=> store.movies?.trailerVideo);
-    
     // Hook and API call using custom hook and passing props movieId as a parameter inside of the hook
     useMovieTrailer(movieId);
-  return (
+    
+   
+    
+   return (
     <div className='w-screen'>
         <iframe
         className='w-screen aspect-video'
