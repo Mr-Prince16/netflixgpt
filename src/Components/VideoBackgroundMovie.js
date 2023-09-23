@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import useMovieTrailer from '../Hooks/useMovieTrailer';
+import usePlayMovie from '../Hooks/useMovieTrailer';
 
-const VideoBackground = ({movieId}) => {
-    const trailerVideo = useSelector((store)=> store.movies?.trailerVideo);
+const VideoBackgroundMovie = ({movieId}) => {
+    const movieVideo = useSelector((store)=> store.movies?.playMovie);
     // Hook and API call using custom hook and passing props movieId as a parameter inside of the hook
-    useMovieTrailer(movieId);
+    usePlayMovie(movieId);
     
    return (
     <div className='w-screen'>
@@ -13,7 +13,7 @@ const VideoBackground = ({movieId}) => {
         className='w-screen aspect-video'
         src = {
             "https://www.youtube.com/embed/"+
-            trailerVideo?.key + 
+            movieVideo?.key + 
             "?&autoplay=1&mute=1"
         }
         title='Youtube video player'
@@ -23,4 +23,4 @@ const VideoBackground = ({movieId}) => {
   )
 }
 
-export default VideoBackground
+export default VideoBackgroundMovie;

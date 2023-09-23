@@ -11,20 +11,26 @@ const Body = () => {
 {
     path: "/",
     element: <Login/>,
+    errorElement: <Error/>
 },
 {
     path: "/browse",
-    element: <Browse/>
+    element: <Browse/>,
+    errorElement: <Error/>
 },
 {
   path: "/error",
-  element: <Error/>
+  element: <Error/>,
+  errorElement: <Error/>
 },
 {
   path: "/browse/:movieId",
-  element: <PlayMovie/>
-}
-    ]);
+  element: <PlayMovie/>,
+  errorElement: <Error/>
+},
+
+    ],
+    );
 
   
   return (
