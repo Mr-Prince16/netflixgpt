@@ -32,7 +32,7 @@ const UserDetailsPage = () => {
        </h2>
        <p className='mx-auto p-4 rounded-lg mt-4 max-w-2xl text-left border-2 text-xl'>
         <br />
-       Welcome to StreamSnipeTV. Please go ahead and select a movie watch any movie/tv series trailer.I have implemented GPT 3.5 Turbo API also for Search Movie functionality. Happy Sniping😂. Finally I would like to thank Akshay Saini and Namaste React Course for teaching me so much. I feel really confident on my front end skills now 💪🏻💪🏻
+       Welcome to StreamSnipeGPT. Please go ahead and select a movie watch any movie/tv series trailer.I have implemented GPT 3.5 Turbo API also for Search Movie functionality. Happy Sniping😂
        </p>
      </div>
      <div className='mt-8 md:ml-[150px] grid grid-cols-1 gap-4 sm:grid-cols-3 md:mt-16 lg:gap-x-12'></div>
