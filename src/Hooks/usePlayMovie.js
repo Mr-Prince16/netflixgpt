@@ -32,7 +32,7 @@ const usePlayMovie = (movieId) => {
                 video.type === "Featurette" ||
                 video.type.toLowerCase().includes("trailer")
             );
-            const trailer = filterData.length ? filterData[0] : jsonTV.results[0];
+            const trailer = filterData.length ? filterData[1] : jsonTV.results[0];
             dispatch(addMovieVideo(trailer));
         }
 
