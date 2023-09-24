@@ -13,12 +13,10 @@ const usePlayMovie = (movieId) => {
         const dataMovie = await
         fetch("https://api.themoviedb.org/3/movie/" + movieId + "/videos?language=en-US", API_OPTIONS);
         const jsonMovie = await dataMovie.json();
-        console.log(jsonMovie);
         const dataTV = await fetch("https://api.themoviedb.org/3/tv/" + movieId + "/videos?language=en-US", API_OPTIONS);
         const jsonTV = await dataTV.json();
-        console.log(jsonTV);
 
-        if (jsonMovie.results && jsonMovie.results.length > 1) {
+        if (jsonMovie.results && jsonMovie.results.length >= 1) {
             const filterData = jsonMovie.results.filter((video) => video.type === "Trailer" ||
                 video.type === "Official Trailer" ||
                 video.type === "Teaser" ||

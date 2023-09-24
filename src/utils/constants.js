@@ -22,4 +22,5 @@ export const SUPPORTED_LANGUAGES = [
     { identifier: "spanish", name: "Spanish" }
 
 ];
+export const MOBILE_LOGO = 'https://i.ibb.co/mJv0SH4/718-7188480-icon-netflix-logo-png-transparent-png-removebg-preview.png';
 export const OPENAI_Key = process.env.REACT_APP_OPENAI_KEY;

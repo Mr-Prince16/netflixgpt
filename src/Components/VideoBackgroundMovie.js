@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import usePlayMovie from '../Hooks/useMovieTrailer';
-
+import Footer from './Footer';
 const VideoBackgroundMovie = ({movieId}) => {
     const movieVideo = useSelector((store)=> store.movies?.playMovie);
     // Hook and API call using custom hook and passing props movieId as a parameter inside of the hook
@@ -10,7 +10,9 @@ const VideoBackgroundMovie = ({movieId}) => {
    return (
     <div className='w-screen'>
         <iframe
-        className='w-screen aspect-video'
+        className='w-screen h-screen md:w-full md:h-auto md:aspect-video'
+        // className='w-screen h-screen md:w-full md:h-auto md:aspect-video
+        // mobile:rotate-90 mobile:origin-center'
         src = {
             "https://www.youtube.com/embed/"+
             movieVideo?.key + 

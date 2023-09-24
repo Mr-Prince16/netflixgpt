@@ -5,6 +5,7 @@ import {createBrowserRouter} from "react-router-dom";
 import {RouterProvider} from "react-router-dom";
 import Error from './Error';
 import PlayMovie from './PlayMovie';
+import UserDetailsPage from './UserDetailsPage';
 const Body = () => {
   
     const appRouter = createBrowserRouter([
@@ -28,16 +29,17 @@ const Body = () => {
   element: <PlayMovie/>,
   errorElement: <Error/>
 },
-
+{
+  path: "/user",
+  element: <UserDetailsPage/>,
+  errorElement: <Error/>
+}
     ],
     );
-
-  
   return (
     <div >
       <RouterProvider router={appRouter}/>
     </div>
   )
 }
-
-export default Body
+export default Body;

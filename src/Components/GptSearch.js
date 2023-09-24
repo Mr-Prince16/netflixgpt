@@ -2,7 +2,7 @@ import React from 'react';
 import GptMovieSuggestions from './GptMovieSuggestions';
 import GptSearchBar from './GptSearchBar';
 import { BG_URL } from '../utils/constants';
-
+import Footer from './Footer';
 const GptSearch = () => {
   return (
     <>
@@ -12,6 +12,7 @@ const GptSearch = () => {
     <div className=''>
         <GptSearchBar/>
         <GptMovieSuggestions/>
+        <Footer/>
     </div>
     
     </>

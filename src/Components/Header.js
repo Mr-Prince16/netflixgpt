@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useState} from 'react'
 import {signOut } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -9,11 +9,14 @@ import { addUser , removeUser } from '../utils/userSlice';
 import { LOGO, SUPPORTED_LANGUAGES } from '../utils/constants';
 import { toggleGptSearchView } from '../utils/gptSlice';
 import { changeLanguage } from '../utils/configSlice';
+import {ChevronDownCircle} from "lucide-react";
+import { Link } from 'react-router-dom';
 const Header = () => {
   const dispatch=useDispatch();
   const navigate = useNavigate();
   const user = useSelector(store => store.user);
-  const showGptSearch = useSelector(store => store.gpt.showGptSearch)
+  const showGptSearch = useSelector(store => store.gpt.showGptSearch);
+  const [menuOpen, setMenuOpen] = useState(false);
   const handleSignOut = () =>{
 signOut(auth).then(() => {
 }).catch((error) => {
@@ -57,7 +60,7 @@ signOut(auth).then(() => {
       {user &&<div className='flex p-2 justify-between'>
         {showGptSearch && (
           <select
-          className='p-2 m-2 bg-gray-900 text-white'
+          className='absolute bottom-[35px] -left-[2px] md:static p-2 m-2 bg-gray-900 text-white rounded-lg'
           onChange={handleLanguageChange}
           >
             {SUPPORTED_LANGUAGES.map((lang)=>(
@@ -68,20 +71,38 @@ signOut(auth).then(() => {
           </select>
         )}
         <button
-        className='py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg'
+        className=' hidden md:block py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg '
         onClick={handleGptSearchClick}
         >
           {showGptSearch ? "Homepage" : "GPT Search"}
         </button>
         <img
-        className='hidden md:block h-12 w-12'
+        className='hidden md:block h-12 w-12 rounded-full'
         alt='usericon'
         src={user.photoURL}
         />
-      <button onClick={handleSignOut} className='font-bold text-white'>(Sign Out)</button>
+      <button onClick={()=>setMenuOpen(!menuOpen)}  className='hidden md:block font-bold text-white'>
+        <ChevronDownCircle/>
+       </button>
+       <div
+          className={`absolute right-7 rounded-xl w-[150px] top-[70px] z-50 ${
+            menuOpen ? "flex flex-col justify-around" : "hidden"
+          } bg-black opacity-80 h-[200px]`}>
+          <p className='text-red-300 px-1 py-1 text-center'>
+            Welcome {user?.displayName}
+          </p>
+          <Link to={"/"}>
+            <p className='text-red-300 cursor-pointer text-center'>Home</p>
+          </Link>
+          <button
+            onClick={handleSignOut}
+            className='  ml-10  py-1 rounded-full w-[50%] text-red-300  '>
+            Logout
+          </button>
+        </div>
       </div>}
     </div>
   )
 }
 
-export default Header
+export default Header;
