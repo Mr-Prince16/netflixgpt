@@ -23,7 +23,7 @@ const usePlayMovie = (movieId) => {
                 video.type === "Featurette" ||
                 video.type.toLowerCase().includes("trailer")
             );
-            const trailer = filterData.length ? filterData[0] : jsonMovie.results[0];
+            const trailer = filterData.length ? filterData[1] : jsonMovie.results[1];
             dispatch(addMovieVideo(trailer));
         } else {
             const filterData = jsonTV.results.filter((video) => video.type === "Trailer" ||
