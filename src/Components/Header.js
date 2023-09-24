@@ -88,9 +88,11 @@ signOut(auth).then(() => {
           className={`absolute right-7 rounded-xl w-[150px] top-[70px] z-50 ${
             menuOpen ? "flex flex-col justify-around" : "hidden"
           } bg-black opacity-80 h-[200px]`}>
-          <p className='text-red-300 px-1 py-1 text-center'>
+            <Link to={"/user"}>
+            <p className='text-red-300 px-1 py-1 text-center'>
             Welcome {user?.displayName}
           </p>
+          </Link>
           <Link to={"/"}>
             <p className='text-red-300 cursor-pointer text-center'>Home</p>
           </Link>
